@@ -1,10 +1,10 @@
 $(document).ready(function() {
   // VARIABLES
-  var Gem1Value = randomGem1Value();
-  var Gem2Value = 0;
-  var Gem3Value = 0;
-  var Gem4Value = 0;
-  var gameScore = 0;
+  var Gem1Value = randomGemNum();
+  var Gem2Value = randomGemNum();
+  var Gem3Value = randomGemNum();
+  var Gem4Value = randomGemNum();
+  var gameScore = randomGemNum();
 
   var gameRandomScore = [Math.floor(Math.random() * 19) + 101];
   console.log('Game value is: ' + gameRandomScore);
@@ -16,10 +16,15 @@ $(document).ready(function() {
     return gemOneValue;
   }
 
+  function randomGemNum() {
+    return Math.floor(Math.random() * 12) + 1;
+  }
+
   $('#Gem1').click(function() {
-    // alert('You clicked Gem 1');
-    // var Gem1Value = randomGem1Value();
     $('#g1Value').text(Gem1Value);
+    $('#g2Value').text(Gem2Value);
+    $('#g3Value').text(Gem3Value);
+    $('#g4Value').text(Gem4Value);
   });
 
   // END OF SCRIPT
