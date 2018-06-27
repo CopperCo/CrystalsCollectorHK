@@ -1,0 +1,17 @@
+body {
+  background-color: #2a2054;
+  color: white;
+  font-family: 'Muli', sans-serif;
+}
+
+h1 {
+  font-family: 'Galada', cursive;
+  background-color: #42a390;
+  padding: 25px;
+}
+
+.instructions {
+  background-color: #f5fefd;
+  color: #1d1930;
+  padding: 25px;
+}
