@@ -11,7 +11,11 @@ h1 {
 }
 
 .instructions {
-  background-color: #f5fefd;
-  color: #1d1930;
+  background-color: #f5fefd7a;
+  color: #ffffff;
   padding: 25px;
+}
+
+img {
+  width: 100px;
 }
