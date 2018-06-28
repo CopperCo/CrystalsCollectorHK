@@ -1,31 +1,65 @@
+// VARIABLES
+var gameScore;
+var wins = 0;
+var losses = 0;
+var playerGemTotalCost = 0;
+
+var gemObject = {
+  Gem1: 0,
+  Gem2: 0,
+  Gem3: 0,
+  Gem4: 0
+};
+
+function randomNumber(minVal, maxVal) {
+  // This function takes two numbers a minimum and maximum and generates a random number between these two values.
+  return Math.floor(Math.random() * (maxVal - minVal + 1) + minVal);
+}
+
+function setupBoard() {
+  gemObject.Gem1 = randomNumber(1, 12);
+  gemObject.Gem2 = randomNumber(1, 12);
+  gemObject.Gem3 = randomNumber(1, 12);
+  gemObject.Gem4 = randomNumber(1, 12);
+  playerGemTotalCost = 0;
+
+  gameScore = randomNumber(19, 120);
+}
+
+function updateGUI() {
+  // Set wins
+  $("#winScore").text(wins);
+  // Set loss
+  $("#lostScore").text(losses);
+  // Cost of Gems
+  $("#rndScore").text(gameScore);
+  // Player Total Score
+  $("#playerGemTotalCost").text(playerGemTotalCost);
+}
+
 $(document).ready(function() {
-  // VARIABLES
-  var Gem1Value = randomGemNum();
-  var Gem2Value = randomGemNum();
-  var Gem3Value = randomGemNum();
-  var Gem4Value = randomGemNum();
-  var gameScore = randomGemNum();
+  setupBoard();
+  updateGUI();
 
-  var gameRandomScore = [Math.floor(Math.random() * 19) + 101];
-  console.log('Game value is: ' + gameRandomScore);
-  $('#rndScore').text(gameRandomScore);
-
-  function randomGem1Value() {
-    var gemOneValue = [Math.floor(Math.random() * 12) + 1];
-    console.log('Gem1 value is: ' + gemOneValue);
-    return gemOneValue;
-  }
-
-  function randomGemNum() {
-    return Math.floor(Math.random() * 12) + 1;
-  }
-
-  $('#Gem1').click(function() {
-    $('#g1Value').text(Gem1Value);
-    $('#g2Value').text(Gem2Value);
-    $('#g3Value').text(Gem3Value);
-    $('#g4Value').text(Gem4Value);
+  $(".gem").click(function() {
+    console.log(gemObject);
+    playerGemTotalCost += gemObject[this.id];
+    updateGUI();
+    if (playerGemTotalCost == gameScore) {
+      wins++;
+      updateGUI();
+      alert("You won!");
+      setupBoard();
+    } else if (playerGemTotalCost > gameScore) {
+      losses++;
+      updateGUI();
+      alert("Womp Womp - Better luck next round...");
+      setupBoard();
+    }
+    updateGUI();
   });
 
   // END OF SCRIPT
 });
+
+$(".collapse").collapse();

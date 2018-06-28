@@ -1,21 +1,61 @@
 body {
   background-color: #2a2054;
   color: white;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
 }
 
 h1 {
-  font-family: 'Galada', cursive;
+  font-family: "Galada", cursive;
   background-color: #42a390;
   padding: 25px;
+  text-align: center;
 }
 
-.instructions {
-  background-color: #f5fefd7a;
+.gem {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.gemCost {
+  /* background-color: #4c615e; */
+  background-color: rgb(85, 73, 131);
+  border-radius: 5px;
   color: #ffffff;
   padding: 25px;
 }
 
-img {
-  width: 100px;
+.playergemCost {
+  background-color: rgb(62, 46, 129);
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 25px;
+}
+
+.btn-purple {
+  background-color: #a161fe;
+  border-color: #2a2054;
+  color: #ffffff;
+}
+
+.card-body {
+  color: rgb(22, 22, 22);
+}
+
+.gmBoard {
+  background-color: #a161fe;
+  border-radius: 5px;
+  padding: 5px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #2a292f;
 }
