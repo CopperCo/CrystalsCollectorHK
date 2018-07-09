@@ -5,15 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <!-- FONT -->
   <link href="https://fonts.googleapis.com/css?family=Galada|Muli" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
   <!-- ICON -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
     crossorigin="anonymous">
   <!-- STYLE -->
   <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+
+  <!-- Annimations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
   <link rel="stylesheet" href="assets/css/style.css">
 
 
@@ -21,127 +28,131 @@
 </head>
 
 <body>
-  <h1>
-    <i class="far fa-gem fa-xs"></i> Crystal Collector!
-    <i class="far fa-gem fa-xs"></i>
-  </h1>
+  <div class="main contanier">
+    <div class="header">
+      <h1>
+        <i class="far fa-gem fa-xs"></i> Crystal Collector!
+        <i class="far fa-gem fa-xs"></i>
+      </h1>
+      <button class="ui button clickInstructions">Instructions</button>
+    </div>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <!-- ALT -->
-      <p>
-        <button class="btn btn-purple" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Learn about the game!</button>
-      </p>
-      <div class="row">
-        <div class="col">
-          <div class="collapse multi-collapse" id="multiCollapseExample1">
-            <div class="card card-body">
-              <h2>How to Play</h2>
-              <p>Every day the cost of gems changes. When you start the game the cost of gems you have to meet will be displayed.</p>
-              <p>There are 4 gems, by clicking on a gem the cost assoicated will be shown in your Gem Cost section. For each
-                gem you click the cost will add up.</p>
-            </div>
+  </div>
+
+  <div class="ui modal">
+    <div class="header">Welcome to Crystal Collector</div>
+    <div class="content">
+      <h3>How to Play</h3>
+      <p>Every day the cost of gems changes. When you start the game the cost of gems you have to meet will be displayed.</p>
+      <p>There are 4 gems, by clicking on a gem the cost assoicated will be shown in your Gem Cost section. For each gem you
+        click the cost will add up.</p>
+
+      <h3>How to win!</h3>
+      <p>You win the game by mathcing your total cost with the cost of the day which is randomly generated.</p>
+      <p>You lose the game if your total cost goes above the daily cost.</p>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="ui container">
+
+    <!-- PRICE SECTION -->
+    <section class="priceOfGems">
+      <div class="ui grid">
+        <div class="two column row">
+          <div class="ui piled segment column">
+            <h4>DAILY PRICE OF GEMS: $
+              <span id="rndScore"></span>
+            </h4>
+
           </div>
-        </div>
-        <div class="col">
-          <div class="collapse multi-collapse" id="multiCollapseExample2">
-            <div class="card card-body">
-              <h2>How to win!</h2>
-              <p>You win the game by mathcing your total cost with the cost of the day which is randomly generated.</p>
-              <p>You lose the game if your total cost goes above the daily cost.</p>
-            </div>
+          <div class="ui piled segment column">
+            <h4>YOUR CURRENT PRICE: $
+              <span id="playerGemTotalCost"></span>
+            </h4>
           </div>
         </div>
       </div>
+    </section>
 
+    <!-- GEMS -->
+    <section class="crystals">
+      <div class="ui grid">
+        <div class="row">
+          <!-- Gem One -->
+          <div class="four wide column">
+            <img class="gem" id="Gem1" src="assets/images/Gem-01.png" alt="Gem1">
+          </div>
+          <!-- Gem Two -->
+          <div class="four wide column">
+            <img class="gem" id="Gem2" src="assets/images/Gem-02.png" alt="Gem2">
+          </div>
+          <!-- Gem Three -->
+          <div class="four wide column">
+            <img class="gem" id="Gem3" src="assets/images/Gem-03.png" alt="Gem3">
+          </div>
+          <!-- Gem Four -->
+          <div class="four wide column">
+            <img class="gem" id="Gem4" src="assets/images/Gem-04.png" alt="Gem4">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME SCORE -->
+    <div class="gameBoard">
+      <div class="ui equal width grid">
+        <div class="eight wide column">
+          <div class="ui segment">
+            <h3>Wins:
+              <span id="winScore"></span>
+            </h3>
+          </div>
+        </div>
+        <div class=" eight wide column">
+          <div class="ui segment">
+            <h3>Losses:
+              <span id="lostScore"></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <!-- Footer -->
+
+  <div class="ui inverted vertical footer segment">
+    <div class="">
+      Designed from nothing by
+      <a href="https://copperco.github.io/">Hayley K.</a> &copy; 2018
     </div>
   </div>
 
-  <section class="randomNumberToMeet">
-    <div class="container">
-      <div class="row">
-        <div class="gemCost col-xs-6 col-sm-6 col-md-6">
-          <h4>DAILY PRICE OF GEMS: $
-            <span id="rndScore"></span>
-          </h4>
-
-        </div>
-        <div class="playergemCost col-xs-6 col-sm-6 col-md-6">
-          <h4>YOUR CURRENT PRICE: $
-            <span id="playerGemTotalCost"></span>
-          </h4>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="crystals">
-    <div class="container">
-      <div class="row">
-        <!-- Gem One -->
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <img class="gem" id="Gem1" src="assets/images/Gem-01.png" alt="Gem1">
-        </div>
-        <!-- Gem Two -->
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <img class="gem" id="Gem2" src="assets/images/Gem-02.png" alt="Gem2">
-        </div>
-        <!-- Gem Three -->
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <img class="gem" id="Gem3" src="assets/images/Gem-03.png" alt="Gem3">
-        </div>
-        <!-- Gem Four -->
-        <div class="col-sm-3 col-md-3 col-lg-3">
-          <img class="gem" id="Gem4" src="assets/images/Gem-04.png" alt="Gem4">
-        </div>
-      </div>
-    </div>
-  </section>
 
 
+  <!-- CLOSING DIV -->
+  </div>
 
-  <Section class="gameScoreBoard">
-    <div class="container">
-      <div class="row gmBoard justify-content-center">
-        <div class="col-sm-6 col-md-4">
-          <p>Wins:
-            <span id="winScore"></span>
-          </p>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <p>Losses:
-            <span id="lostScore"></span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Footer -->
-  <section id="footerSC" class="footer">
-    <div class="container-fluid">
-      <div class="row justify-content-md-center">
-        <div class="col-md-8 col-sm-10 col-xs-10">
-          Designed from nothing by
-          <a href="https://copperco.github.io/">Hayley K.</a> &copy; 2018
-        </div>
-      </div>
-    </div>
-  </section>
 
 
   <!-- IMAGE REF <a href='https://www.freepik.com/free-vector/pack-of-six-colored-gemstones_1093484.htm'>Designed by Freepik</a> -->
 
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
   <script src="assets/javascript/game.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
 
 </body>
 

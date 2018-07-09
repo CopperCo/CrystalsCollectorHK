@@ -28,32 +28,38 @@ function setupBoard() {
 
 function updateGUI() {
   // Set wins
-  $("#winScore").text(wins);
+  $('#winScore').text(wins);
   // Set loss
-  $("#lostScore").text(losses);
+  $('#lostScore').text(losses);
   // Cost of Gems
-  $("#rndScore").text(gameScore);
+  $('#rndScore').text(gameScore);
   // Player Total Score
-  $("#playerGemTotalCost").text(playerGemTotalCost);
+  $('#playerGemTotalCost').text(playerGemTotalCost);
 }
 
 $(document).ready(function() {
   setupBoard();
   updateGUI();
+  $('.ui.modal').modal('show');
 
-  $(".gem").click(function() {
-    console.log(gemObject);
+  $('.clickInstructions').on('click', function() {
+    $('.ui.modal').modal('show');
+  });
+
+  $('.crystals').fadeIn();
+
+  $('.gem').click(function() {
     playerGemTotalCost += gemObject[this.id];
     updateGUI();
     if (playerGemTotalCost == gameScore) {
       wins++;
       updateGUI();
-      alert("You won!");
+      alert('You won!');
       setupBoard();
     } else if (playerGemTotalCost > gameScore) {
       losses++;
       updateGUI();
-      alert("Womp Womp - Better luck next round...");
+      alert('Womp Womp - Better luck next round...');
       setupBoard();
     }
     updateGUI();
@@ -61,5 +67,3 @@ $(document).ready(function() {
 
   // END OF SCRIPT
 });
-
-$(".collapse").collapse();

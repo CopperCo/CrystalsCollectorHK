@@ -1,13 +1,31 @@
 body {
-  background-color: #2a2054;
+  /* background-color: #2a2054; */
+  background-image: url(../images/Gem-collector-bkground.svg);
   color: white;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
+}
+
+.header {
+  background-color: #42a390;
+  text-align: center;
+  padding: 20px 0px;
 }
 
 h1 {
-  font-family: "Galada", cursive;
-  background-color: #42a390;
-  padding: 25px;
+  font-family: 'Berkshire Swash', cursive;
+}
+
+.header a {
+  color: white;
+}
+
+.modal {
+  color: #2a292f;
+}
+
+.ui.piled.segment,
+.segment {
+  color: #2a292f;
   text-align: center;
 }
 
@@ -18,44 +36,16 @@ h1 {
   margin-bottom: 15px;
 }
 
-.gemCost {
-  /* background-color: #4c615e; */
-  background-color: rgb(85, 73, 131);
-  border-radius: 5px;
-  color: #ffffff;
-  padding: 25px;
-}
-
-.playergemCost {
-  background-color: rgb(62, 46, 129);
-  border-radius: 5px;
-  color: #ffffff;
-  padding: 25px;
-}
-
-.btn-purple {
-  background-color: #a161fe;
-  border-color: #2a2054;
-  color: #ffffff;
-}
-
-.card-body {
-  color: rgb(22, 22, 22);
-}
-
-.gmBoard {
-  background-color: #a161fe;
-  border-radius: 5px;
-  padding: 5px;
-  color: #ffffff;
-  text-align: center;
+.gameBoard,
+.priceOfGems {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
+  text-align: center;
   background-color: #2a292f;
 }
